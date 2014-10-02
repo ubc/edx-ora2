@@ -8,7 +8,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -80,7 +80,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -150,7 +150,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -291,7 +291,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -358,7 +358,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -428,7 +428,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -496,7 +496,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -560,7 +560,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 2,
@@ -643,7 +643,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -785,7 +785,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -856,7 +856,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -927,7 +927,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -990,7 +990,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -1101,7 +1101,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -1244,7 +1244,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -1343,12 +1343,12 @@
         ]
     },
 
-    "allow_file_upload": {
+    "file_upload_type": {
         "title": "Foo",
         "prompt": "Test prompt",
         "rubric_feedback_prompt": "Test Feedback Prompt",
         "rubric_feedback_default_text": "Test default text...",
-        "allow_file_upload": true,
+        "file_upload_type": "image",
         "criteria": [
             {
                 "order_num": 0,
@@ -1385,7 +1385,7 @@
             }
         ],
         "expected_xml": [
-            "<openassessment allow_file_upload=\"True\">",
+            "<openassessment file_upload_type=\"image\">",
             "<title>Foo</title>",
             "<assessments>",
                 "<assessment name=\"peer-assessment\" start=\"2014-02-27T09:46:28\" due=\"2014-03-01T00:00:00\" must_grade=\"5\" must_be_graded_by=\"3\" />",
@@ -1417,7 +1417,7 @@
         "due": null,
         "submission_start": null,
         "submission_due": null,
-        "allow_file_upload": null,
+        "file_upload_type": null,
         "criteria": [
             {
                 "order_num": 0,
@@ -1482,7 +1482,7 @@
         "prompt": "Test prompt",
         "rubric_feedback_prompt": "Test Feedback Prompt",
         "rubric_feedback_default_text": "",
-        "allow_file_upload": true,
+        "file_upload_type": "image",
         "start": null,
         "due": null,
         "submission_start": null,
@@ -1523,7 +1523,7 @@
             }
         ],
         "expected_xml": [
-            "<openassessment allow_file_upload=\"True\">",
+            "<openassessment file_upload_type=\"image\">",
             "<title>Foo</title>",
             "<assessments>",
                 "<assessment name=\"peer-assessment\" start=\"2014-02-27T09:46:28\" due=\"2014-03-01T00:00:00\" must_grade=\"5\" must_be_graded_by=\"3\" />",

@@ -35,6 +35,7 @@ else
   echo "Creating user ora2."
   mkdir -p /edx/app/ora2
   sudo useradd -u #{ORA2_UID} -G admin -d /edx/app/ora2 -s /bin/bash ora2
+  sudo touch ~ora2/.sudo_as_admin_successful
   sudo chown -R ora2:ora2 /edx/app/ora2
   sudo -u ora2 echo "#{$bashrc}" >> /edx/app/ora2/.bashrc
 fi

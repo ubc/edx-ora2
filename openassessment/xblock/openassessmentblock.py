@@ -119,7 +119,13 @@ class OpenAssessmentBlock(
         help="ISO-8601 formatted string representing the submission due date."
     )
 
-    file_upload_type = String(
+    allow_file_upload = Boolean(
+        default=None,
+        scope=Scope.content,
+        help="Do not use. For backwards compatibility only."
+    )
+
+    file_upload_type_raw = String(
         default=None,
         scope=Scope.content,
         help="File upload to be included with submission (can be 'image' or 'file')."
@@ -206,6 +212,19 @@ class OpenAssessmentBlock(
     @property
     def course_id(self):
         return self._serialize_opaque_key(self.xmodule_runtime.course_id)  # pylint:disable=E1101
+
+    @property
+    def file_upload_type(self):
+        if self.file_upload_type_raw is not None:
+            return self.file_upload_type_raw
+        if self.allow_file_upload:
+            return 'image'
+        else:
+            return None
+
+    @file_upload_type.setter
+    def file_upload_type(self, value):
+        self.file_upload_type_raw = value
 
     def get_anonymous_user_id(self, username, course_id):
         """
@@ -391,8 +410,12 @@ class OpenAssessmentBlock(
         """
         return [
             (
-                "OpenAssessmentBlock File Upload",
+                "OpenAssessmentBlock File Upload: images",
                 load('static/xml/file_upload.xml')
+            ),
+            (
+                "OpenAssessmentBlock File Upload: allow_file_upload compatibility",
+                load('static/xml/file_upload_compat.xml')
             ),
             (
                 "OpenAssessmentBlock Unicode",
@@ -455,6 +478,7 @@ class OpenAssessmentBlock(
         block.submission_due = config['submission_due']
         block.title = config['title']
         block.prompts = config['prompts']
+        block.allow_file_upload = config['allow_file_upload']
         block.file_upload_type = config['file_upload_type']
         block.allow_latex = config['allow_latex']
         block.leaderboard_show = config['leaderboard_show']

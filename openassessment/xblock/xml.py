@@ -815,9 +815,11 @@ def parse_from_xml(root):
     if 'submission_due' in root.attrib:
         submission_due = parse_date(unicode(root.attrib['submission_due']), name="submission due date")
 
-    file_upload_type = None
+    allow_file_upload = None
     if 'allow_file_upload' in root.attrib:
-        file_upload_type = 'image'
+        allow_file_upload = _parse_boolean(unicode(root.attrib['allow_file_upload']))
+
+    file_upload_type = None
     if 'file_upload_type' in root.attrib:
         file_upload_type = unicode(root.attrib['file_upload_type'])
 
@@ -866,6 +868,7 @@ def parse_from_xml(root):
         'rubric_feedback_default_text': rubric['feedback_default_text'],
         'submission_start': submission_start,
         'submission_due': submission_due,
+        'allow_file_upload': allow_file_upload,
         'file_upload_type': file_upload_type,
         'allow_latex': allow_latex,
         'leaderboard_show': leaderboard_show

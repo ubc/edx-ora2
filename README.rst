@@ -29,13 +29,6 @@ Create the Vagrant instance:
     vagrant plugin install vagrant-vbguest
     vagrant up
 
-The first vagrant up will fail when setting up shared folders (because the user ora2 does not exist) so do:
-
-.. code:: bash
-
-    vagrant provision
-    vagrant reload
-
 Now you can ssh into the vagrant machine:
 
 .. code:: bash

@@ -8,6 +8,8 @@ VAGRANTFILE_API_VERSION = "2"
 MEMORY = 1048
 CPU_COUNT = 2
 
+ORA2_UID=2000
+
 $bashrc = <<SCRIPT
 source "/edx/app/ora2/venvs/ora2/bin/activate"
 
@@ -32,9 +34,8 @@ if id -u ora2 >/dev/null 2>&1; then
 else
   echo "Creating user ora2."
   mkdir -p /edx/app/ora2
-  sudo useradd -d /edx/app/ora2 -s /bin/bash ora2
-  sudo adduser --quiet ora2 admin
-  chown -R ora2:ora2 /edx/app/ora2
+  sudo useradd -u #{ORA2_UID} -G admin -d /edx/app/ora2 -s /bin/bash ora2
+  sudo chown -R ora2:ora2 /edx/app/ora2
   sudo -u ora2 echo "#{$bashrc}" >> /edx/app/ora2/.bashrc
 fi
 
@@ -74,7 +75,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.synced_folder "#{ora_mount_dir}", "/edx/app/ora2/edx-ora2",
-    create: true, owner: "ora2", group: "ora2"
+    create: true, :mount_options => ["uid=#{ORA2_UID},gid=#{ORA2_UID}"]
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", MEMORY.to_s]

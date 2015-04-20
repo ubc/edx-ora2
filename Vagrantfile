@@ -50,7 +50,7 @@ fi
 
 SCRIPT
 
-ora_mount_dir = "edx-ora2"
+ora_mount_dir = "."
 
 if ENV['VAGRANT_MOUNT_BASE']
 

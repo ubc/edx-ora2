@@ -128,7 +128,7 @@ class OpenAssessmentBlock(
     file_upload_type_raw = String(
         default=None,
         scope=Scope.content,
-        help="File upload to be included with submission (can be 'image' or 'file')."
+        help="File upload to be included with submission (can be 'image', 'file', or 'any')."
     )
 
     allow_latex = Boolean(
@@ -412,6 +412,10 @@ class OpenAssessmentBlock(
             (
                 "OpenAssessmentBlock File Upload: images",
                 load('static/xml/file_upload.xml')
+            ),
+            (
+                "OpenAssessmentBlock File Upload: any MIME type",
+                load('static/xml/file_upload_any.xml')
             ),
             (
                 "OpenAssessmentBlock File Upload: allow_file_upload compatibility",

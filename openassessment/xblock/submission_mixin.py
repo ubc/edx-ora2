@@ -229,7 +229,7 @@ class SubmissionMixin(object):
         if upload_type == 'file' and not content_type in self.UPLOADABLE_FILE_MIME_TYPES:
             return {'success': False, 'msg': self._(u"Content type must be of an allowed file type.")}
         try:
-            key = self._get_student_item_key(content_type)
+            key = self._get_student_item_key()
             url = file_upload_api.get_upload_url(key, content_type)
             return {'success': True, 'url': url}
         except FileUploadError:

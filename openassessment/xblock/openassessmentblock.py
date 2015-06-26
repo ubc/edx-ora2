@@ -269,7 +269,7 @@ class OpenAssessmentBlock(
                 student_id = unicode(self.scope_ids.user_id)
 
         if content_type is not None:
-            item_id = item_id + '.' + mimetypes.guess_extension(content_type)
+            item_id = item_id + mimetypes.guess_extension(content_type)
 
         student_item_dict = dict(
             student_id=student_id,

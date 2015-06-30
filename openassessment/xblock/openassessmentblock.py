@@ -7,7 +7,6 @@ import logging
 import pkg_resources
 
 import pytz
-import mimetypes
 
 from django.template.context import Context
 from django.template.loader import get_template
@@ -239,7 +238,7 @@ class OpenAssessmentBlock(
         """
         return self.runtime.service(self, 'user').get_anonymous_user_id(username, course_id)
 
-    def get_student_item_dict(self, anonymous_user_id=None, content_type=None):
+    def get_student_item_dict(self, anonymous_user_id=None):
         """Create a student_item_dict from our surrounding context.
 
         See also: submissions.api for details.
@@ -267,9 +266,6 @@ class OpenAssessmentBlock(
                 student_id = None
             else:
                 student_id = unicode(self.scope_ids.user_id)
-
-        if content_type is not None:
-            item_id = item_id + mimetypes.guess_extension(content_type)
 
         student_item_dict = dict(
             student_id=student_id,

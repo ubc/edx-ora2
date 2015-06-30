@@ -596,11 +596,11 @@
         "expected_error": "error updating xblock configuration"
     },
 
-    "file_upload_type_must_be_string": {
+    "invalid_file_upload_type": {
         "feedback_prompt": "Feedback prompt",
         "feedback_default_text": "Feedback default text",
         "prompts": [{"description": "My new prompt 1."}, {"description": "My new prompt 2."}],
-        "allow_file_upload": 6,
+        "file_upload_type": "invalid",
         "allow_latex": false,
         "criteria": [
             {

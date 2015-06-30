@@ -443,6 +443,14 @@ describe("OpenAssessment.ResponseView", function() {
         expect(fileUploader.uploadArgs.data).toEqual(files[0]);
     });
 
+    it("uploads a arbitrary type file using a one-time URL", function() {
+        var files = [{type: 'application/exe', size: 1024, name: 'application.exe', data: ''}];
+        view.prepareUpload(files, 'any');
+        view.fileUpload();
+        expect(fileUploader.uploadArgs.url).toEqual(FAKE_URL);
+        expect(fileUploader.uploadArgs.data).toEqual(files[0]);
+    });
+
     it("displays an error if a one-time file upload URL cannot be retrieved", function() {
         // Configure the server to fail when retrieving the one-time URL
         server.uploadUrlError = true;

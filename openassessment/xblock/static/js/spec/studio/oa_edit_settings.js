@@ -89,6 +89,8 @@ describe("OpenAssessment.EditSettingsView", function() {
         expect(view.fileSubmissionEnabled()).toBe('image');
         view.fileSubmissionEnabled('file');
         expect(view.fileSubmissionEnabled()).toBe('file');
+        view.fileSubmissionEnabled('any');
+        expect(view.fileSubmissionEnabled()).toBe('any');
         view.fileSubmissionEnabled('none');
         expect(view.fileSubmissionEnabled()).toBe('none');
     });

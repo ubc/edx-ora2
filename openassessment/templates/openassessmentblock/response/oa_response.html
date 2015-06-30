@@ -93,7 +93,7 @@
                                     alt="{% trans "The image associated with your submission." %}"
                                     {% endif %}
                                     src="{{ file_url }}"/>
-                                {% elif file_upload_type == "file" %}
+                                {% elif file_upload_type == "file" or file_upload_type == "any" %}
                                 <a href="{{ file_url }}" id="submission__answer__file" class="submission--file">
                                     {% if file_url %}
                                         {% trans "The file associated with your submission." %}

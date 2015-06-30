@@ -480,13 +480,15 @@ OpenAssessment.ResponseView.prototype = {
 
     /**
      When selecting a file for upload, do some quick client-side validation
-     to ensure that it is an image or a PDF, and is not larger than the maximum file
-     size.
+     to ensure that it is an image, a PDF or other allowed types, and is not
+     larger than the maximum file size.
 
      Args:
         files (list): A collection of files used for upload. This function assumes
             there is only one file being uploaded at any time. This file must
-            be less than 5 MB and an image or PDF.
+            be less than 5 MB and an image, PDF or other allowed types.
+        uploadType (string): uploaded file type allowed, could be none, image,
+            file or any.
 
      **/
     prepareUpload: function(files, uploadType) {

@@ -433,7 +433,8 @@ if (typeof OpenAssessment.Server == "undefined" || !OpenAssessment.Server) {
             submissionDue (ISO-formatted datetime string or null): The date the submission is due.
             criteria (list of object literals): The rubric criteria.
             assessments (list of object literals): The assessments the student will be evaluated on.
-            fileSubmissionEnabled (string): 'image' if image attachments are allowed, 'file' if file attachments.
+            fileSubmissionEnabled (string): 'image' if image attachments are allowed, 'file' if file attachments,
+            'any' if no file type restriction.
             latexEnabled: TRUE if latex rendering is enabled.
             leaderboardNum (int): The number of scores to show in the leaderboard.
 

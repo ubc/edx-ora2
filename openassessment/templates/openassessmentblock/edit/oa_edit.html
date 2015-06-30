@@ -107,10 +107,11 @@
                         <select id="openassessment_submission_upload_selector" class="input setting-input" name="upload submission">
                             <option value="none">{% trans "None"%}</option>
                             <option value="image" {% if file_upload_type == "image" %} selected="true" {% endif %}>{% trans "Image Display"%}</option>
-                            <option value="file" {% if file_upload_type == "file" %} selected="true" {% endif %}>{% trans "File Link"%}</option>
+                            <option value="file" {% if file_upload_type == "file" %} selected="true" {% endif %}>{% trans "PDF or Image File"%}</option>
+                            <option value="any" {% if file_upload_type == "any" %} selected="true" {% endif %}>{% trans "Any File"%}</option>
                         </select>
                     </div>
-                    <p class="setting-help">{% trans "Specify whether students can submit a file along with their text response." %}</p>
+                    <p class="setting-help">{% trans "Specify whether students can submit a file along with their text response. 'Image' option allows JPG, GIF and PNG files. 'PDF or Image' option allows PDF and images. 'Any' option allows any file to be uploaded(use this option with caution)." %}</p>
                 </li>
                 <li id="openassessment_submission_latex_wrapper" class="field comp-setting-entry">
                     <div class="wrapper-comp-setting">

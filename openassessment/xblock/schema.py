@@ -63,6 +63,12 @@ VALID_ASSESSMENT_TYPES = [
     u'student-training'
 ]
 
+VALID_UPLOAD_FILE_TYPE = [
+    u'none',
+    u'image',
+    u'file',
+    u'any'
+]
 
 # Schema definition for an update from the Studio JavaScript editor.
 EDITOR_UPDATE_SCHEMA = Schema({
@@ -76,7 +82,10 @@ EDITOR_UPDATE_SCHEMA = Schema({
     Required('feedback_default_text'): utf8_validator,
     Required('submission_start'): Any(datetime_validator, None),
     Required('submission_due'): Any(datetime_validator, None),
-    Required('file_upload_type'): utf8_validator,
+    Required('file_upload_type', default=None): Any(
+        All(utf8_validator, In(VALID_UPLOAD_FILE_TYPE)),
+        None
+    ),
     'allow_file_upload': bool, # Backwards compatibility.
     Required('allow_latex'): bool,
     Required('leaderboard_show'): int,

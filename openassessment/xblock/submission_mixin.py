@@ -29,20 +29,9 @@ class SubmissionMixin(object):
 
     """
 
-    UPLOADABLE_IMAGE_MIME_TYPES = set([
-        'image/gif',
-        'image/jpeg',
-        'image/pjpeg',
-        'image/png',
-    ])
+    UPLOADABLE_IMAGE_MIME_TYPES = {'image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'}
 
-    UPLOADABLE_FILE_MIME_TYPES = set([
-        'application/pdf',
-        'image/gif',
-        'image/jpeg',
-        'image/pjpeg',
-        'image/png',
-    ])
+    UPLOADABLE_FILE_MIME_TYPES = {'application/pdf'} | UPLOADABLE_IMAGE_MIME_TYPES
 
     @XBlock.json_handler
     def submit(self, data, suffix=''):
@@ -267,7 +256,7 @@ class SubmissionMixin(object):
             A string representation of the key.
 
         """
-        student_item_dict = self.get_student_item_dict(content_type=content_type)
+        student_item_dict = self.get_student_item_dict()
         return u"{student_id}/{course_id}/{item_id}".format(
             **student_item_dict
         )
